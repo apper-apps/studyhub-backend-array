@@ -98,13 +98,13 @@ const CourseCard = ({ course, assignments = [], grades = {} }) => {
           <div className="grid grid-cols-2 gap-4 pt-2 border-t border-gray-100">
             <div className="text-center">
               <div className="text-lg font-semibold text-gray-900">
-                {assignments.filter(a => a.courseId === course.Id).length}
+{assignments.filter(a => (a.course_id_c?.Id || a.course_id_c) === course.Id).length}
               </div>
-              <div className="text-xs text-gray-500">Assignments</div>
+              <div className="text-xs text-gray-600">Total</div>
             </div>
             <div className="text-center">
               <div className="text-lg font-semibold text-gray-900">
-                {assignments.filter(a => a.courseId === course.Id && a.status === "completed").length}
+                {assignments.filter(a => (a.course_id_c?.Id || a.course_id_c) === course.Id && (a.status_c || a.status) === "completed").length}
               </div>
               <div className="text-xs text-gray-500">Completed</div>
             </div>

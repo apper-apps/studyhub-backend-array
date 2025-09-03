@@ -143,16 +143,16 @@ const AssignmentList = ({ assignments = [], courses = [], onStatusChange, onDele
                 {/* Actions */}
                 <div className="flex flex-col items-center space-y-2">
                   <Button
-                    variant={assignment.status === "completed" ? "secondary" : "primary"}
+variant={(assignment.status_c || assignment.status) === "completed" ? "secondary" : "primary"}
                     size="sm"
                     onClick={() => handleStatusToggle(assignment)}
                     className="gap-2 min-w-[100px]"
                   >
                     <ApperIcon 
-                      name={assignment.status === "completed" ? "RotateCcw" : "Check"} 
+                      name={(assignment.status_c || assignment.status) === "completed" ? "RotateCcw" : "Check"} 
                       className="w-4 h-4" 
                     />
-                    {assignment.status === "completed" ? "Reopen" : "Complete"}
+                    {(assignment.status_c || assignment.status) === "completed" ? "Reopen" : "Complete"}
                   </Button>
                   
                   <Button
